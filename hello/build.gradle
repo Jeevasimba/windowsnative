@@ -22,6 +22,6 @@ library {
                 return ['user32.lib']
             }
             return []
-        }
+        })
     }
 }
