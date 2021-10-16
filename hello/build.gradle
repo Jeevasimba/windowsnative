@@ -14,6 +14,14 @@ library {
         } else if (compileTask.targetPlatform.get().operatingSystem.isMacOsX()) {
 
                compileTask.compilerArgs.add('-std=gnu++17')
-    }
+        }
+
+        def linkTask = binary.linkTask.get()
+        linkTask.linkerArgs.addAll(linkTask.targetPlatform.map {
+            if (it.operatingSystem.isWindows()) {
+                return ['user32.lib']
+            }
+            return []
+        }
     }
 }
