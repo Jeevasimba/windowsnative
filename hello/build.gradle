@@ -11,7 +11,7 @@ library {
         machines.macOS.x86_64
     ]
 
-    linkage = [Linkage.STATIC, Linkage.SHARED]
+    linkage = [Linkage.SHARED]
 
     binaries.configureEach { CppBinary binary ->
         def compileTask = binary.compileTask.get()
